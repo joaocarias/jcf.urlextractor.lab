@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "URL Sender Extension",
+  "version": "1.0",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "webNavigation"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "http://localhost:18018/*"
+  ],
+  "incognito": "split"  
+}

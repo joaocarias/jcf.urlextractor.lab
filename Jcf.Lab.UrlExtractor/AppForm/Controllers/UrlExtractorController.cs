@@ -1,6 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using AppForm.Model;
+using AppForm.Storage;
+using Newtonsoft.Json;
 
 namespace AppForm.Controllers
 {
@@ -15,10 +18,10 @@ namespace AppForm.Controllers
             {
                 using (var reader = new StreamReader(request.InputStream, request.ContentEncoding))
                 {
-                    string urlReceived = reader.ReadToEnd();
-                    Console.WriteLine($"URL recebida: {urlReceived}");
-
-                    // Aqui você pode fazer o que quiser com a URL recebida, como armazená-la ou exibi-la em uma UI.
+                    string jsonReceived = reader.ReadToEnd();
+                    UrlModel urlModel = JsonConvert.DeserializeObject<UrlModel>(jsonReceived);
+                    Console.WriteLine($"URL recebida: {urlModel.Url}");
+                    ChromeCache.Url = urlModel.Url;
                 }
 
                 response.StatusCode = (int)HttpStatusCode.OK;

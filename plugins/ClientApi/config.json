@@ -1,0 +1,7 @@
+{
+    "api": {
+        "host":"https://localhost",
+        "port": 7193,
+        "action":"Home?chave"
+    }    
+}

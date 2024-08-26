@@ -1,5 +1,5 @@
-﻿using AppForm.Caches;
-using AppForm.HttpServers;
+﻿using AppForm.HttpServers;
+using AppForm.Storage;
 using System;
 using System.Windows.Forms;
 
@@ -15,14 +15,13 @@ namespace AppForm
             _httpServer = new HttpServer("http://localhost:18018/");
             _httpServer.Start();
 
-            UrlExtractorCache.Url = string.Empty;
+            ChromeCache.Url = string.Empty;
         }
 
-        private void btnConsultar_Click(object sender, EventArgs e)
+        private void BtnConsultar_Click(object sender, EventArgs e)
         {
             Console.WriteLine("btnConsultar");
-
-            
+            Console.WriteLine($"Chrome URL atual: {ChromeCache.Url}");
         }
     }
 }
